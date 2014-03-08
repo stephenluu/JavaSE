@@ -10,7 +10,7 @@ import java.util.concurrent.locks.ReentrantLock;
 import javax.swing.JLabel;
 
 
-public class IPScan
+public class  IPScan
 {
 	static String hostAddress ;
 	static int onlineNum = 0;
@@ -19,18 +19,18 @@ public class IPScan
 	
 	IPScan (){
 		
-		// ¶¨ÒåIP Çø¶Î
-		String ip1 = ""; 	// ·¶Î§ 1
-		String ip2 = "";	// ·¶Î§ 2
+		// ï¿½ï¿½ï¿½ï¿½IP ï¿½ï¿½ï¿½
+		String ip1 = ""; 	// ï¿½ï¿½Î§ 1
+		String ip2 = "";	// ï¿½ï¿½Î§ 2
 
 
 		try
 		{
 			InetAddress localAddress = InetAddress.getLocalHost();
-			hostAddress = localAddress.getHostAddress();		// »ñÈ¡±¾»úIPµØÖ·
+			hostAddress = localAddress.getHostAddress();		// ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½IPï¿½ï¿½Ö·
 			int dotPos = hostAddress.lastIndexOf(".");
-			ip1 = hostAddress.substring(0, dotPos + 1);				// ÉèÖÃIPÇøÍ·Ç°¶Î
-			ip2 = hostAddress.substring(0, dotPos + 1);				// ÉèÖÃIPÇøÍ·ºó¶Î
+			ip1 = hostAddress.substring(0, dotPos + 1);				// ï¿½ï¿½ï¿½ï¿½IPï¿½ï¿½Í·Ç°ï¿½ï¿½
+			ip2 = hostAddress.substring(0, dotPos + 1);				// ï¿½ï¿½ï¿½ï¿½IPï¿½ï¿½Í·ï¿½ï¿½ï¿½
 
 		}
 		catch (UnknownHostException e1)
@@ -41,7 +41,7 @@ public class IPScan
 
 
 	ExecuteServices service = ExecuteServices.getInstance();
-		service.startup(255); // ÉèÖÃÄ¬ÈÏÏß³Ì³Ø´óÐ¡
+		service.startup(255); // ï¿½ï¿½ï¿½ï¿½Ä¬ï¿½ï¿½ï¿½ß³Ì³Ø´ï¿½Ð¡
 		
 		try
 		{
@@ -65,7 +65,7 @@ public class IPScan
 	public synchronized static void countOnline(){
 		onlineNum++;
 		//System.out.println(onlineNum);
-		IPDialog.onlineNumlabel.setText("»îÔ¾IPÊý£º"+onlineNum);
+		IPDialog.onlineNumlabel.setText("ï¿½ï¿½Ô¾IPï¿½ï¿½"+onlineNum);
 	}
 }
 
@@ -78,13 +78,13 @@ class ExecuteServices
 	private static Lock write_lock = new ReentrantLock();
 
 
-	private static int threadPool = 255;	//Ïß³Ì³Ø´óÐ¡
+	private static int threadPool = 255;	//ï¿½ß³Ì³Ø´ï¿½Ð¡
 
 
 	public void startup(int threadPool)
 	{
 		this.threadPool = threadPool;
-		service = Executors.newFixedThreadPool(threadPool);			//´´½¨Ïß³Ì³Ø	
+		service = Executors.newFixedThreadPool(threadPool);			//ï¿½ï¿½ï¿½ï¿½ï¿½ß³Ì³ï¿½	
 	}
 
 
@@ -129,12 +129,12 @@ class Thread1 implements Runnable
 			InetAddress address = InetAddress.getByName(hostaddress);
 
 
-			if (address.isReachable(3000))	// ²âÊÔ3ÃëÄÚÊÇ·ñÄÜ¹»µ½´ï´ËµØÖ·
+			if (address.isReachable(3000))	// ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½Ü¹ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½Ö·
 			{
 				System.out.println(address.getHostAddress() + ":on line");
 				IPScan.countOnline();
 				IPDialog.Result.append("on line :   "+ address.getHostAddress() + "\n");
-				//new Thread(new testOpenPortThread(hostaddress)).start();	// É¨Ãè¿ª·Å¶Ë¿Ú
+				//new Thread(new testOpenPortThread(hostaddress)).start();	// É¨ï¿½è¿ªï¿½Å¶Ë¿ï¿½
 			}
 			else
 			{
@@ -162,7 +162,7 @@ class testOpenPortThread implements Runnable
 	}
 
 
-	// ²âÊÔ¿ª·Å¶Ë¿Ú
+	// ï¿½ï¿½ï¿½Ô¿ï¿½ï¿½Å¶Ë¿ï¿½
 	public void run()
 	{
 		for (int i = 20; i < 3389; i++)
@@ -173,12 +173,12 @@ class testOpenPortThread implements Runnable
 				socket = new Socket(hostaddress, i);
 				if (socket.isConnected())
 				{
-					System.out.println(hostaddress + ":" + i + "¶Ë¿Ú :open");
+					System.out.println(hostaddress + ":" + i + "ï¿½Ë¿ï¿½ :open");
 				}
 			}
 			catch (Exception e)
 			{
-				System.out.println(hostaddress + ":" + i + "¶Ë¿Ú :close");
+				System.out.println(hostaddress + ":" + i + "ï¿½Ë¿ï¿½ :close");
 			}
 
 
