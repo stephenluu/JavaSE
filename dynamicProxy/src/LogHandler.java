@@ -3,7 +3,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
 
-public class LogHandler implements InvocationHandler {
+public class  LogHandler implements InvocationHandler {
 
     private Object targetObject;  
     
