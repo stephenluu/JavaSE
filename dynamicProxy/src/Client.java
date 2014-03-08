@@ -7,9 +7,9 @@ public class Client {
 		LogHandler logHandler = new LogHandler();
 		UserManager userManager = (UserManager) logHandler
 				.newProxyInstance(new UserManagerImpl());
-		String name = userManager.addUser("0001", "张三");
+		String name = userManager.addUser("0001", "user1");
 		
-		String name2 = userManager.addUser2("0001", "张三");
+		String name2 = userManager.addUser2("0001", "user2");
 	}
 
 }
