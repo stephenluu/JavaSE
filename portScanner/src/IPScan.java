@@ -15,8 +15,6 @@ public class  IPScan
 	static String hostAddress ;
 	static int onlineNum = 0;
 	
-	
-	
 	IPScan (){
 		
 		// ����IP ���
