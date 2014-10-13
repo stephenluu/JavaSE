@@ -1,4 +1,4 @@
-import java.util.HashMap;
+﻿import java.util.HashMap;
 
 
 public class Test {
@@ -16,6 +16,9 @@ public class Test {
 	 * @param text
 	 * @return
 	 */
+
+
+
 	 public int longestConsecutive(String query,String text) {
 		
 		 if (query == null || text == null)
